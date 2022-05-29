@@ -1,10 +1,11 @@
 {
   "name": "mytodo",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./build/start/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "ts-node-dev --respan --transpite-only --inspect -- ./src/start/server.ts",
+    "lint": "eslint --fix --ext .js,.ts,.json ."
     "test": "jest"
   },
   "dependencies": {
