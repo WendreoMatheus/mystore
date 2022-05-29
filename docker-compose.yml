@@ -4,15 +4,16 @@ services:
   app:
     ports:
       - 3000:3000
+    env_file:
+      - .env
     build:
       context: ./ 
       dockerfile: Dockerfile
   db:
     image: postgres:10.5
     restart: always
-    environment: 
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+    env_file:
+      - .env
     logging:
       options:
         max-size: 10m
