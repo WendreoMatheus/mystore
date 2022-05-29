@@ -7,7 +7,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
     "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -15,14 +14,17 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "prettier",
-    "@typescript-eslint",
-    "simple-import-sort"
-  ],
-  "ignorePatters": "build",
+  "plugins": ["prettier", "@typescript-eslint", "simple-import-sort"],
+  "ignorePatterns": "build",
   "rules": {
     "prettier/prettier": "error",
-    "simple-import-sort": "warn"
+    "simple-import-sort/imports": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^next$"
+      }
+    ]
   }
 }
