@@ -4,7 +4,7 @@
   "main": "./build/start/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respan --transpite-only --inspect -- ./src/start/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --inspect -- ./src/start/server.ts",
     "lint": "eslint --fix --ext .js,.ts,.json .",
     "test": "jest"
   },
