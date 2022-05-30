@@ -9,6 +9,8 @@ services:
     build:
       context: ./ 
       dockerfile: Dockerfile
+    depends_on: 
+      - db
   db:
     image: "postgres:${POSTGRES_VERSION}"
     restart: always
