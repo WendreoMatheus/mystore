@@ -1,3 +1,4 @@
+migrations
 .env
 node_modules
 *.log
