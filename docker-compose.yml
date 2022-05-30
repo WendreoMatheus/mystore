@@ -11,9 +11,10 @@ services:
       dockerfile: Dockerfile
     depends_on: 
       - db
+    restart: always
   db:
     image: "postgres:${POSTGRES_VERSION}"
-    restart: always
+    restart: unless-stopped
     env_file:
       - .env
     logging:
