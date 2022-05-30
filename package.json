@@ -4,7 +4,7 @@
   "main": "./build/start/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "nodemon -L '/src' --exec 'ts-node src/start/server.ts' -e ts",
     "lint": "eslint --fix --ext .js,.ts,.json .",
     "test": "jest"
   },
