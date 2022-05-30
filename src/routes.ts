@@ -1,18 +1,14 @@
 import { PrismaClient } from '@prisma/client'
 import { Router } from 'express'
-
+import { graphqlHTTP } from 'express-graphql'
+import schema from './schema'
 const prisma = new PrismaClient()
 
 const router = Router()
 
-router.get('/', (_req, res) => {
-  res.json({ message: 'Hello World!' })
-})
-
-router.get('/users', async (_req, res) => {
-  const allUsers = await prisma.user.findMany()
-
-  res.json({ users: allUsers })
-})
+router.use('/graphql', graphqlHTTP({
+  schema,
+  graphiql: true
+}))
 
 export default router

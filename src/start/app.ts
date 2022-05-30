@@ -13,12 +13,12 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use(router)
 
-app.use((_req: Request, res: Response, next: NextFunction) => {
-  res.status(404).json({ message: 'Page Not Found' })
-})
+// app.use((_req: Request, res: Response, next: NextFunction) => {
+//   res.status(404).json({ message: 'Page Not Found' })
+// })
 
-app.use((err: Errback, _req: Request, res: Response, next: NextFunction) => {
-  res.status(500).json({ message: 'Internal Error' })
-})
+// app.use((err: Errback, _req: Request, res: Response, next: NextFunction) => {
+//   res.status(500).json({ message: 'Internal Error' })
+// })
 
 export default app

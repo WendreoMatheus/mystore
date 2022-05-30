@@ -4,7 +4,7 @@
   "main": "./build/start/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only --inspect -- ./src/start/server.ts",
+    "dev": "nodemon",
     "lint": "eslint --fix --ext .js,.ts,.json .",
     "test": "jest"
   },
@@ -13,9 +13,14 @@
   },
   "dependencies": {
     "@prisma/client": "3.14.0",
+    "class-validator": "^0.13.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -28,6 +33,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
     "prisma": "^3.14.0",
     "rimraf": "^3.0.2",
