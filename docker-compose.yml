@@ -12,6 +12,13 @@ services:
     depends_on: 
       - db
     restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+
   db:
     image: "postgres:${POSTGRES_VERSION}"
     restart: unless-stopped
