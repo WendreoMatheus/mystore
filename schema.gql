@@ -17,18 +17,23 @@ type Query {
 """User Object"""
 type User {
   email: String!
+  firstname: String!
   id: ID!
-  name: String
+  password: String!
 }
 
 """User Create Data"""
 input UserInput {
   email: String!
-  name: String!
+  firstname: String!
+  lastname: String!
+  password: String!
 }
 
 """User Update Data"""
 input UserUpdate {
   email: String
-  name: String
+  firstname: String
+  lastname: String
+  password: String
 }

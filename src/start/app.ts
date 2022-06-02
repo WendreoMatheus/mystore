@@ -3,7 +3,8 @@ import 'dotenv/config'
 import cors from 'cors'
 import express, { Errback, NextFunction, Request, Response } from 'express'
 
-import router from '../routes'
+import router from '../routes/index.router';
+
 
 const app = express()
 

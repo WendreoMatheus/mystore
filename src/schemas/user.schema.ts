@@ -9,25 +9,40 @@ export class User {
   @Field()
   email: string;
 
-  @Field({ nullable: true })
-  name: string;
+  @Field()
+  firstname: string;
+
+  @Field()
+  password: string;
 }
 
 @InputType({ description: "User Create Data" })
 export class UserInput {
   @Field()
-  name!: string
+  email!: string
 
   @Field()
-  email!: string
+  firstname!: string;
+
+  @Field()
+  lastname!: string;
+
+  @Field()
+  password!: string;
 }
 
 @InputType({ description: "User Update Data" })
 export class UserUpdate {
   @Field({ nullable: true })
-  name: string;
+  email: string;
 
   @Field({ nullable: true })
-  email: string;
+  firstname: string;
+
+  @Field({ nullable: true })
+  lastname: string;
+
+  @Field({ nullable: true })
+  password: string;
 }
 
