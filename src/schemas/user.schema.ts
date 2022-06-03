@@ -1,48 +1,48 @@
-import { ObjectType, Field, ID, InputType } from 'type-graphql';
-import "reflect-metadata";
+import 'reflect-metadata'
 
-@ObjectType({ description: "User Object" })
+import { Field, ID, InputType, ObjectType } from 'type-graphql'
+
+@ObjectType({ description: 'User Object' })
 export class User {
   @Field((type) => ID)
-  id: number;
+  id: number
 
   @Field()
-  email: string;
+  email: string
 
   @Field()
-  firstname: string;
+  firstname: string
 
   @Field()
-  password: string;
+  password: string
 }
 
-@InputType({ description: "User Create Data" })
+@InputType({ description: 'User Create Data' })
 export class UserInput {
   @Field()
   email!: string
 
   @Field()
-  firstname!: string;
+  firstname!: string
 
   @Field()
-  lastname!: string;
+  lastname!: string
 
   @Field()
-  password!: string;
+  password!: string
 }
 
-@InputType({ description: "User Update Data" })
+@InputType({ description: 'User Update Data' })
 export class UserUpdate {
   @Field({ nullable: true })
-  email: string;
+  email: string
 
   @Field({ nullable: true })
-  firstname: string;
+  firstname: string
 
   @Field({ nullable: true })
-  lastname: string;
+  lastname: string
 
   @Field({ nullable: true })
-  password: string;
+  password: string
 }
-

@@ -1,46 +1,44 @@
-import { User } from '@prisma/client';
-import { Router } from 'express';
-import passport from '../passport/local';
-import { generateToken } from '../utils/auth';
-import _ from 'underscore';
+import { User } from '@prisma/client'
+import { Router } from 'express'
+import _ from 'underscore'
 
-const router = Router();
+import passport from '../passport/local'
+import { generateToken } from '../utils/auth'
+
+const router = Router()
 
 router.post('/signup', async (req, res, next) => {
-  passport.authenticate("signup", { session: false }, (err, user: User) => {
-    if (err) throw new Error(err);
+  passport.authenticate('signup', { session: false }, (err, user: User) => {
+    if (err) throw new Error(err)
 
-    const token = generateToken(user.id);
-
-    const newUser: Omit<User, "password"> = user;
+    const token = generateToken(user.id)
 
     return res.status(201).json({
       data: {
-        status: "success",
-        user: _.omit(user, "password"),
-        token
+        status: 'success',
+        user: _.omit(user, 'password'),
+        token,
       },
-      statusCode: res.statusCode
+      statusCode: res.statusCode,
     })
-  })(req, res, next);
-});
+  })(req, res, next)
+})
 
-router.post("/signin", async (req, res, next) => {
-  passport.authenticate("signin", { session: false }, (err, user: User) => {
-    if (err) throw new Error(err);
+router.post('/signin', async (req, res, next) => {
+  passport.authenticate('signin', { session: false }, (err, user: User) => {
+    if (err) throw new Error(err)
 
-    const token = generateToken(user.id);
-
+    const token = generateToken(user.id)
 
     return res.status(201).json({
-      status: "success",
+      status: 'success',
       data: {
-        user: _.omit(user, "password"),
-        token
+        user: _.omit(user, 'password'),
+        token,
       },
-      statusCode: res.statusCode
+      statusCode: res.statusCode,
     })
-  })(req, res, next);
-});
+  })(req, res, next)
+})
 
-export default router;
+export default router

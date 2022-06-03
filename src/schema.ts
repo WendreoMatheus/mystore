@@ -1,9 +1,10 @@
-import { buildSchemaSync } from "type-graphql";
-import UsersResolver from "./resolvers/users.resolver";
+import { buildSchemaSync } from 'type-graphql'
+
+import UsersResolver from './resolvers/users.resolver'
 
 const schema = buildSchemaSync({
   resolvers: [UsersResolver],
-  emitSchemaFile: true
+  emitSchemaFile: true,
 })
 
-export default schema;
+export default schema
