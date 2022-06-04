@@ -6,4 +6,4 @@ package-lock.json
 coverage
 postgres-data
 schema.gql
-.next
+app/.next
