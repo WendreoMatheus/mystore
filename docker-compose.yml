@@ -1,6 +1,19 @@
 version: "3.7"
 
 services:
+  app:
+    build:
+      context: ./app
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    volumes:
+      - type: bind
+        source: ./app
+        target: /app
+    restart: always
+    depends_on:
+      - server
+      - db
   server:
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
@@ -8,7 +21,6 @@ services:
       - .env
     build:
       context: ./server 
-      dockerfile: Dockerfile
     depends_on: 
       - db
     restart: always
@@ -16,7 +28,7 @@ services:
     tty: true
     volumes:
       - type: bind
-        source: .
+        source: ./app
         target: /server
 
   db:

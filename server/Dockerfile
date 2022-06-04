@@ -1,7 +1,7 @@
 FROM node:lts-alpine
 ENV NODE_ENV=development
 
-WORKDIR /app
+WORKDIR /server
 
 COPY package.json .
 COPY package-lock.json .
