@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
   server:
+    hostname: my_store_api
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
     env_file:
@@ -20,6 +21,7 @@ services:
         target: /server
 
   db:
+    hostname: my_store_db
     image: "postgres:${POSTGRES_VERSION}"
     restart: unless-stopped
     env_file:
@@ -32,3 +34,18 @@ services:
       - '5432:${POSTGRES_PORT}'
     volumes:
       - ./postgres-data:/var/lib/postgres-data
+  pg_admin:
+    image: dpage/pgadmin4
+    env_file:
+      - .env
+    ports:
+      - "16543:80"
+    depends_on:
+      - db
+    networks:
+      - db-pgadmin-network
+
+networks:
+  db-pgadmin-network:
+    driver: bridge
+
